@@ -166,8 +166,8 @@ exports.paymentController = async(req,res)=>{
             payment_method_types:['card'],
             mode:'payment',
             line_items: line_item,
-            success_url: 'http://localhost:5173/payment-success',
-            cancel_url:'http://localhost:5173/payment-error'
+            success_url: 'https://bookstore-frontend-flax.vercel.app/payment-success',
+            cancel_url:'https://bookstore-frontend-flax.vercel.app/payment-error'
         })
 
         console.log(session)
@@ -191,7 +191,7 @@ exports.allBooksController=async(req, res)=>{
 
 // to approve a book
 exports.approveBookController=async(req, res)=>{
-    
+
     const {id}= req.params
     try{
         const existingBook = await books.find({_id:id})
